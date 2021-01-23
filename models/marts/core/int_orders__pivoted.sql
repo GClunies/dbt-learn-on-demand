@@ -7,7 +7,7 @@ with payments as (
 
 ),
 
-pivoted as (
+final as (
 
     select
         order_id,
@@ -26,4 +26,4 @@ pivoted as (
 
 )
 
-select * from pivoted
+select * from final
