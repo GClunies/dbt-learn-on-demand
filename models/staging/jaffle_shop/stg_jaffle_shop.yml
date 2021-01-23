@@ -17,9 +17,8 @@ models:
         - name: order_id
           description: Primary key for orders.
           tests:
-            - relationships:
-                to: ref('stg_customers')
-                field: customer_id
+            - unique
+            - not_null
         - name: status
           description: '{{ doc("order_status") }}'
           tests:
@@ -30,3 +29,8 @@ models:
                   - returned
                   - placed
                   - return_pending
+        - name: customer_id
+          tests:
+            - relationships:
+                to: ref('stg_customers')
+                field: customer_id
